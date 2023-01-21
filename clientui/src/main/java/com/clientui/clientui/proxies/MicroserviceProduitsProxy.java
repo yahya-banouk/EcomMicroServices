@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "microservice-produits" , url = "localhost:9001")
+@FeignClient(name = "microservice-produits", url = "localhost:9001")
 
 public interface MicroserviceProduitsProxy {
     @GetMapping(value = "/Produits")
-    List<ProductBean> listeDesProduits();
+    public List<ProductBean> listeDesProduits();
 
     @GetMapping( value = "/Produits/{id}")
-    ProductBean recupererUnProduit(@PathVariable("id") int id);
+    public ProductBean recupererUnProduit(@PathVariable("id") int id);
 }
